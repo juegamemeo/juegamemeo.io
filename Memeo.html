@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title>Memeo</title>
+	<!-- include three.js library -->
+    <script src='./libraries/js/three.js'></script>
+    
+	<!-- include jsartookit -->
+	<script src="./libraries/jsartoolkit5/artoolkit.min.js"></script>
+	<script src="./libraries/jsartoolkit5/artoolkit.api.js"></script>
+	<!-- include threex.artoolkit -->
+	<script src="./libraries/threex/threex-artoolkitsource.js"></script>
+	<script src="./libraries/threex/threex-artoolkitcontext.js"></script>
+	<script src="./libraries/threex/threex-arbasecontrols.js"></script>
+	<script src="./libraries/threex/threex-armarkercontrols.js"></script>
+	
+	<script src="libraries/js/MTLLoader.js"></script>
+	<script src="libraries/js/OBJLoader.js"></script>
+	
+	<!-- jQuery code to display an information button-->
+	<script src="./libraries/js/jquery-1.9.1.js"></script>
+	<script src="./libraries/js/jquery-ui.js"></script>
+	<link rel=stylesheet href="./css/jquery-ui.css" />
+
+	<style>
+		.label {
+			color: #FFF;
+			font-family: sans-serif;
+			padding: 2px;
+			background: rgba( 0, 0, 0, .6 );
+			font-size: 46px;
+		}
+	</style>
+   
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+	<video id="video" src="video/video.MOV" crossOrigin="anonymous" preload="none" muted style="display:none">
+		<!-- <source src="video/animacion_memeo.mov" type='video/mov';  codecs="avc1.42E01E, mova.40.2"'> -->
+	</video>
+<script type= module src= "JuegaMemeo.js"> </script>
+
+<script>
+	// Show loading animation.
+	var playPromise = video.play();
+   
+	if (playPromise !== undefined) {
+	  playPromise.then(_ => {
+		// Automatic playback started!
+		// Show playing UI.
+		// We can now safely pause video...
+		video.pause();
+	  })
+	  .catch(error => {
+		// Auto-play was prevented
+		// Show paused UI.
+	  });
+	}
+  </script>
+
+</body>
+</html>
